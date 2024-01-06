@@ -26,12 +26,12 @@
 
 import type { ApiModel } from './sdkModels';
 import type { ICodeGen, IVersionInfo } from './codeGen';
-import { CSharpGen } from './csharp.gen';
-import { KotlinGen } from './kotlin.gen';
-import { SwiftGen } from './swift.gen';
-import { PythonGen } from './python.gen';
-import { TypescriptGen } from './typescript.gen';
-import { GoGen } from './go.gen';
+// import { CSharpGen } from './csharp.gen';
+// import { KotlinGen } from './kotlin.gen';
+// import { SwiftGen } from './swift.gen';
+// import { PythonGen } from './python.gen';
+// import { TypescriptGen } from './typescript.gen';
+// import { GoGen } from './go.gen';
 
 export interface IGeneratorSpec {
   /** source code file extension regex */
@@ -50,57 +50,64 @@ export interface IGeneratorSpec {
 
 // To disable generation of any language specification, just comment it out
 export const Generators: Array<IGeneratorSpec> = [
+  // {
+  //   factory: (api: ApiModel, versions?: IVersionInfo) =>
+  //     new PythonGen(api, versions),
+  //   language: 'Python',
+  //   extension: /\.py/gi,
+  // },
+  // {
+  //   factory: (api: ApiModel, versions?: IVersionInfo) =>
+  //     new TypescriptGen(api, versions),
+  //   language: 'TypeScript',
+  //   extension: /\.ts(x?)/gi,
+  // },
+  // {
+  //   factory: (api: ApiModel, versions?: IVersionInfo) =>
+  //     new KotlinGen(api, versions),
+  //   language: 'Kotlin',
+  //   extension: /\.kt/gi,
+  // },
+  // {
+  //   factory: (api: ApiModel, versions?: IVersionInfo) =>
+  //     new CSharpGen(api, versions),
+  //   language: 'C#',
+  //   legacy: 'csharp',
+  //   options: '-papiPackage=Looker -ppackageName=looker',
+  //   extension: /\.cs/gi,
+  // },
+  // {
+  //   factory: (api: ApiModel, versions?: IVersionInfo) =>
+  //     new SwiftGen(api, versions),
+  //   language: 'Swift',
+  //   extension: /\.swift/gi,
+  // },
+  // {
+  //   factory: (api: ApiModel, versions?: IVersionInfo) =>
+  //     new GoGen(api, versions),
+  //   language: 'Go',
+  //   options: '-papiPackage=Looker -ppackageName=looker',
+  //   extension: /\.go/gi,
+  // },
   {
-    factory: (api: ApiModel, versions?: IVersionInfo) =>
-      new PythonGen(api, versions),
-    language: 'Python',
-    extension: /\.py/gi,
-  },
-  {
-    factory: (api: ApiModel, versions?: IVersionInfo) =>
-      new TypescriptGen(api, versions),
-    language: 'TypeScript',
-    extension: /\.ts(x?)/gi,
-  },
-  {
-    factory: (api: ApiModel, versions?: IVersionInfo) =>
-      new KotlinGen(api, versions),
-    language: 'Kotlin',
-    extension: /\.kt/gi,
-  },
-  {
-    factory: (api: ApiModel, versions?: IVersionInfo) =>
-      new CSharpGen(api, versions),
-    language: 'C#',
-    legacy: 'csharp',
+    language: 'cpp',
+    legacy: 'cpp-restsdk',
     options: '-papiPackage=Looker -ppackageName=looker',
-    extension: /\.cs/gi,
+    extension: /\.cpp/gi,
   },
-  {
-    factory: (api: ApiModel, versions?: IVersionInfo) =>
-      new SwiftGen(api, versions),
-    language: 'Swift',
-    extension: /\.swift/gi,
-  },
-  {
-    factory: (api: ApiModel, versions?: IVersionInfo) =>
-      new GoGen(api, versions),
-    language: 'Go',
-    options: '-papiPackage=Looker -ppackageName=looker',
-    extension: /\.go/gi,
-  },
-  {
-    language: 'java',
-    legacy: 'java',
-    options: '-papiPackage=Looker -ppackageName=looker',
-    extension: /\.java/gi,
-  },
-  {
-    language: 'php',
-    legacy: 'php',
-    options: '-papiPackage=Looker -ppackageName=looker',
-    extension: /\.php/gi,
-  },
+  // I'm guessing that the legacy option is the OpenAPI option
+  // {
+  //   language: 'java',
+  //   legacy: 'java',
+  //   options: '-papiPackage=Looker -ppackageName=looker',
+  //   extension: /\.java/gi,
+  // },
+  // {
+  //   language: 'php',
+  //   legacy: 'php',
+  //   options: '-papiPackage=Looker -ppackageName=looker',
+  //   extension: /\.php/gi,
+  // },
   // {
   //   language: 'R',
   //   legacy: 'r'
